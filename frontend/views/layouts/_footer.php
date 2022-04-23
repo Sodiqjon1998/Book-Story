@@ -4,9 +4,9 @@ use yii\helpers\Url;
 use common\models\ProductsCategory;
 
 $productCategory = ProductsCategory::find()
-                                    ->where(['status' => '1'])
-                                    ->limit(4)
-                                    ->all();
+                        ->where(['status' => '1'])
+                        ->limit(4)
+                        ->all();
 
 
 ?>
