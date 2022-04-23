@@ -20,6 +20,8 @@ $detailBanner = DetailBanner::find()->one();
 $productCategory = ProductsCategory::find()->where(['status' => 1])->limit(3)->all();
 $products = Products::find()->where(['status' => '1'])->all();
 
+$reviewComment = Reviews::find()->where(['status' => 1])->all();
+
 ?>
 
 
@@ -183,21 +185,27 @@ $products = Products::find()->where(['status' => '1'])->all();
                                     <!--  -->
                                     <div class="tab-pane fade reviews" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
+                                        <?php foreach($reviewComment as $item):?>
                                         <div class="media">
                                             <div class="row no-gutter">
                                                 <div class="col-12 col-lg-2 p-0">
 
                                                     <div class="row no-gutters">
                                                         <div class="col-12 d-flex  justify-content-center">
-                                                            <img src="img/user.jpg" alt="Generic placeholder image">
+                                                            <img style="overflow: hidden;">
                                                         </div>
                                                         <div class="col-12 d-flex mt-2 justify-content-center">
                                                             <ul class="user-rating">
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star"></i></a></li>
+                                                                <?=StarRating::widget([
+                                                                    'name' => 'rating_21',
+                                                                    'value' => $item->stars,
+                                                                    'pluginOptions' => [
+                                                                        'size' => 'xs',
+                                                                        'readonly' => true,
+                                                                        'showClear' => false,
+                                                                        'showCaption' => false,
+                                                                    ],
+                                                                ]);?>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -214,37 +222,7 @@ $products = Products::find()->where(['status' => '1'])->all();
 
                                             </div>
                                         </div>
-                                        <div class="media">
-                                            <div class="row no-gutter">
-                                                <div class="col-12 col-lg-2 p-0">
-
-                                                    <div class="row no-gutters">
-                                                        <div class="col-12 d-flex  justify-content-center">
-                                                            <img src="img/user2.jpg" alt="Generic placeholder image">
-                                                        </div>
-                                                        <div class="col-12 d-flex mt-2 justify-content-center">
-                                                            <ul class="user-rating">
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star-filled"></i></a></li>
-                                                                <li><a href="#"><i class="lni-star"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-
-                                                </div>
-
-                                                <div class="col-12 col-lg-10 p-0">
-                                                    <div class="media-body ">
-                                                        <span class="text-center text-lg-left d-block">27 Aug 2017</span>
-                                                        <h5 class="mb-2 text-center text-lg-left">Media heading</h5>
-                                                        <p class="text-center text-lg-left">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
-                                                    </div>
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                        <?php endforeach;?>
 
                                         <div class="row pl-2 pr-2">
                                             <div class="col-12 d-flex mb-4 mt-3">

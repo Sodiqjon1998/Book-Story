@@ -8,6 +8,10 @@ $cartBanner = CartBanner::find()->one();
 
 ?>
 
+<!--slider sec strat-->
+<section id="slider-sec" class="slider-sec parallax" style="background: url('<?=$cartBanner->imageUrl;?>');">
+</section>
+<!--slider sec end-->
 
 <!-- START HEADING SECTION -->
 <div class="about_content">

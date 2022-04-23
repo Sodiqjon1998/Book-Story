@@ -19,7 +19,8 @@ class ContactController extends \yii\web\Controller
             $contact->date = date("Y-m-d");
 
             if($contact->save()){
-                Yii::$app->session->set('successs', 'Xabaringiz Yuborildi');
+
+                Yii::$app->session->setFlash('success', 'Xabaringiz Yuborildi');
                 
                 return $this->redirect(Yii::$app->request->referrer);
 

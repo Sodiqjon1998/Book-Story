@@ -78,9 +78,9 @@ $son = 0;
                                             <?php $count = Cart::count($item->id)?>
                                             <td class="text-center">
                                                 <div class="quote text-center mt-1">
-                                                    <a href="<?=Url::to(['product/quote-minus', 'id' => $item->id]);?>" data-id="<?=$item->id;?>" style="background: green !important; cursor: pointer; color: #fff;" class="minus bg-dark"><i class="lni-minus"></i></a>
+                                                    <a href="<?=Url::to(['product/quote-minus', 'id' => $item->id]);?>" data-id="<?=$item->id;?>" style="background: green !important; cursor: pointer; color: #fff; padding: 10px;" class="minus bg-dark"><i class="lni-minus"></i></a>
                                                         <input type="number" class="count"  id="quote" name="qty" value="<?=$count;?>">
-                                                    <a href="<?=Url::to(['product/quote', 'id' => $item->id]);?>" style="background: green !important; cursor: pointer; color: #fff;" class="plus bg-dark"><i class="lni-plus"></i></a>
+                                                    <a href="<?=Url::to(['product/quote', 'id' => $item->id]);?>" style="background: green !important; cursor: pointer; color: #fff; padding: 10px;" class="plus bg-dark"><i class="lni-plus"></i></a>
                                                 </div>
                                             </td>
                                             <td>
@@ -117,8 +117,8 @@ $son = 0;
                                                 $.post("/product/address?id='.'"+$(this).val(), function(data){
                                                     $("select#address-district_id").html(data);
                                                 });
-                                            '
-                                        ])->label(false);
+                                            ',
+                                        'style' => 'height: 55px !important; color: #9C9C9C; font-weight: 100;'])->label(false);
                                     ?>
                                 </div>
                                 <div class="form-group">
@@ -128,24 +128,24 @@ $son = 0;
                                             $.post("/product/district?id='.'"+$(this).val(), function(data){
                                                 $("select#address-quarters_id").html(data);
                                             });
-                                        '
-                                    ], )->label(false);
+                                        ',
+                                    'style' => 'height: 55px !important; color: #9C9C9C; font-weight: 100;'], )->label(false);
                                     ?>
                                 </div>
                                 <div class="form-group">
                                     <?=$form->field($model, 'quarters_id')->dropdownList(ArrayHelper::map(Quarters::find()->all(), 'id', 'name'), 
-                                    )->label(false);
+                                    ['style' => 'height: 55px !important; color: #9C9C9C; font-weight: 100;'])->label(false);
                                     ?>
                                 </div>
                                 <div class="form-group">
-                                    <?=$form->field($model, 'bosting')->textInput(['placeholder' => 'Mo\'ljal'])->label(false);?>
+                                    <?=$form->field($model, 'bosting')->textInput(['placeholder' => 'Bosting', 'style' => 'height: 55px !important; color: #9C9C9C; font-weight: 100;'])->label(false);?>
                                 </div>
                                 <div class="form-group">
-                                    <?=$form->field($model, 'phone')->textInput(['placeholder' => 'Telphone'])->label(false);?>
+                                    <?=$form->field($model, 'phone')->textInput(['placeholder' => 'Telphone', 'style' => 'height: 55px !important; color: #9C9C9C; font-weight: 100;'])->label(false);?>
                                 </div>
                                 <?php if(!Yii::$app->user->isGuest):?>
                                     
-                                    <?=Html::submitButton('Buyutmani yuborish',['class' => 'btn yellow-color-green-gradient-btn'])?>
+                                    <?=Html::submitButton('Buyutmani yuborish',['class' => 'btn yellow-color-green-gradient-btn', 'style' => 'font-size: 12px; font-family: sans-serif; padding: 10px 25px; '])?>
 
                                     <?php else:?>
 
@@ -161,36 +161,35 @@ $son = 0;
                             <table>
                                 <tr>
                                     <td>Subtotal $<span id="summa"><?=$sum ?? 0;?></span></td>
-                                    <td><strong>Soni: </strong> <span id="soni"> <?=$allcount;?></span></td>
+                                    <td><strong>&nbsp; Count: </strong> <span id="soni">&nbsp; &nbsp; <?=$allcount;?></span></td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                    
+                                <td>Shipping</td>
+                                <td>
                                     <ul class="color-grey">
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="flat-rate" name="shipping" class="custom-control-input radio_val" value="49" checked="">
-                                                    <label class="custom-control-label" for="flat-rate">Flat Rate : $49.00</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="free-shipping" name="shipping" class="custom-control-input radio_val" value="0">
-                                                    <label class="custom-control-label" for="free-shipping">Free Shipping</label>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="custom-control custom-radio">
-                                                    <input type="radio" id="cod-shipping" name="shipping" class="custom-control-input radio_val" value="55">
-                                                    <label class="custom-control-label" for="cod-shipping">Cash on Delivery</label>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                    
-                                    </td>
-                                </tr>
+                                        <li>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="flat-rate" name="shipping" class="custom-control-input radio_val" value="49">
+                                                <label class="custom-control-label" for="flat-rate">Flat Rate : $49.00</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="free-shipping" name="shipping" class="custom-control-input radio_val" value="0" checked="">
+                                                <label class="custom-control-label" for="free-shipping">Free Shipping</label>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="custom-control custom-radio">
+                                                <input type="radio" id="cod-shipping" name="shipping" class="custom-control-input radio_val" value="50">
+                                                <label class="custom-control-label" for="cod-shipping">Cash on Delivery</label>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </td>
+                            </tr>
                                 <tr>
-                                    <td>Total $ <span id="sum_total"></span></td>
+                                    <td>Total $ <span id="sum_total"><?=$sum;?></span></td>
                                 </tr>
                             </table>
                         </div>

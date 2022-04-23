@@ -95,7 +95,7 @@ $(document).ready(function(){
                 $("#countshow").html(req.allCount);
                 $('#loading').html(req);
                 
-                document.querySelector("#my_div").className = "cart-box-overlay fixed-box";
+                // document.querySelector("#my_div").className = "cart-box-overlay fixed-box";
             },
         });
     });

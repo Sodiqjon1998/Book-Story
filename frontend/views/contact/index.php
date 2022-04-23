@@ -65,19 +65,19 @@ $map = Map::find()->one();
                                 <div id="result"></div>
                             </div>
                             <div class="col-12 col-md-6">
-                                <?= $form->field($contact, 'first_name')->textInput(['placeholder' => 'First Name', 'class' => 'form-control', 'id' => 'candidate_fname'])->label(false);?>
+                                <?= $form->field($contact, 'first_name')->textInput(['placeholder' => 'First Name', 'class' => 'form-control', 'id' => 'candidate_fname', 'style' => 'height: 42px; border-radius: 10px; color: #eee; font-weight: 100; font-size: 14px; font-family: sans-serif;'])->label(false);?>
                             </div>
                             <div class="col-12 col-md-6">
-                                <?= $form->field($contact, 'last_name')->textInput(['placeholder' => 'Last Name', 'class' => 'form-control', 'id' => 'candidate_lname'])->label(false);?>
+                                <?= $form->field($contact, 'last_name')->textInput(['placeholder' => 'Last Name', 'class' => 'form-control', 'id' => 'candidate_lname', 'style' => 'height: 42px; border-radius: 10px; color: #eee; font-weight: 100; font-size: 14px; font-family: sans-serif;'])->label(false);?>
                             </div>
                             <div class="col-12 col-md-6">
-                                <?= $form->field($contact, 'email')->textInput(['placeholder' => 'Email', 'class' => 'form-control', 'id' => 'user_email'])->label(false);?>
+                                <?= $form->field($contact, 'email')->textInput(['placeholder' => 'Email', 'class' => 'form-control', 'id' => 'user_email', 'style' => 'height: 42px; border-radius: 10px; color: #eee; font-weight: 100; font-size: 14px; font-family: sans-serif;'])->label(false);?>
                             </div>
                             <div class="col-12 col-md-6">
-                                <?= $form->field($contact, 'subject')->textInput(['placeholder' => 'Subject', 'class' => 'form-control', 'id' => 'user_subject'])->label(false);?>
+                                <?= $form->field($contact, 'subject')->textInput(['placeholder' => 'Subject', 'class' => 'form-control', 'id' => 'user_subject', 'style' => 'height: 42px; border-radius: 10px; color: #eee; font-weight: 100; font-size: 14px; font-family: sans-serif;'])->label(false);?>
                             </div>
                             <div class="col-12">
-                                <?= $form->field($contact, 'message')->textarea(['placeholder' => 'Message', 'class' => 'form-control', 'id' => 'user_message', 'rows' => 7])->label(false);?>
+                                <?= $form->field($contact, 'message')->textarea(['placeholder' => 'Message', 'class' => 'form-control', 'id' => 'user_message', 'rows' => 7, 'style' => 'height: 42px; border-radius: 10px; color: grey !important; font-weight: 100; font-size: 14px; font-family: sans-serif; height: 170px; padding: 15px;'])->label(false);?>
                             </div>
                             <div class="col-12">
                                 <button class="btn green-color-yellow-gradient-btn user-contact contact_btn" type="submit">SUBMIT
