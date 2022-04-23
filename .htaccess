@@ -1,0 +1,15 @@
+Options -Indexes
+IndexIgnore */*
+
+Options FollowSymLinks
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+RewriteEngine On
+
+RewriteRule ^admin(/.+)?$ backend/web/$1 [L,PT]
+RewriteRule ^admin/(.+)?$ backend/web/$1 [L,PT]
+
+
+RewriteRule ^(.+)?$ frontend/web/$1
