@@ -253,13 +253,13 @@ $menus = $main_menu->activeSubMenus ;
                         <li class="nav-item">
                             <?php
                                 if (Yii::$app->user->isGuest){
-                                    echo "<a class='nav-link btn btn-success btn-sm' style='padding: 7px !important;' href=".Url::to(['site/login']).">".Yii::t('app', 'login')."</a><a class='nav-link btn btn-info btn-sm' style='padding: 7px !important;'' href=".Url::to(['site/signup'])."> ".Yii::t('app', 'signup')."</a>";
+                                    echo "<div style='display: flex; justfy-content: space-around;'><a class='nav-link btn btn-sm' style='padding: 7px !important; font-weight: 700;' href=".Url::to(['site/login']).">".Yii::t('app', 'login')."</a><a class='nav-link btn btn-sm' style='padding: 7px !important; font-weight: 700;' href=".Url::to(['site/signup'])."> ".Yii::t('app', 'signup')."</a></div>";
                                 }else {
-                                    echo 
-                                    Html::beginForm(['site/logout'], 'post', ['class' => 'nav-link'])
+                                    echo
+                                    Html::beginForm(['site/logout'], 'post', ['class' => 'nav-link',])
                                     . Html::submitButton(
                                         'Logout (' . Yii::$app->user->identity->username . ')',
-                                        ['class' => 'btn btn-link logout nav-link', 'style' => 'text-decoration: none; color: #000;']
+                                        ['class' => 'btn btn-link logout nav-link', 'style' => 'text-decoration: none; color: #000; font-weight: 700;']
                                     )
                                     . Html::endForm();
                                 }
@@ -504,13 +504,13 @@ $menus = $main_menu->activeSubMenus ;
                         <li class="nav-item">
                             <?php
                                 if (Yii::$app->user->isGuest){
-                                    echo "<a class='nav-link btn btn-success btn-sm' style='padding: 7px !important;' href=".Url::to(['site/login']).">".Yii::t('app', 'login')."</a><a class='nav-link btn btn-info btn-sm' style='padding: 7px !important;'' href=".Url::to(['site/signup'])."> ".Yii::t('app', 'signup')."</a>";
+                                    echo "<div style='display: flex; justfy-content: space-around;'><a class='nav-link btn btn-sm' style='padding: 7px !important; font-weight: 700;' href=".Url::to(['site/login']).">".Yii::t('app', 'login')."</a><a class='nav-link btn btn-sm' style='padding: 7px !important; font-weight: 700;' href=".Url::to(['site/signup'])."> ".Yii::t('app', 'signup')."</a></div>";
                                 }else {
-                                    echo 
-                                    Html::beginForm(['site/logout'], 'post', ['class' => 'nav-link'])
+                                    echo
+                                    Html::beginForm(['site/logout'], 'post', ['class' => 'nav-link',])
                                     . Html::submitButton(
                                         'Logout (' . Yii::$app->user->identity->username . ')',
-                                        ['class' => 'btn btn-link logout nav-link', 'style' => 'text-decoration: none; color: #000;']
+                                        ['class' => 'btn btn-link logout nav-link', 'style' => 'text-decoration: none; color: #000; font-weight: 700;']
                                     )
                                     . Html::endForm();
                                 }
