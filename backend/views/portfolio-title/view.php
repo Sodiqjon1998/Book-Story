@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Portfolio Sarlavha')
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="portfolio-title-view">
+<div class="portfolio-title-view" style="background: #fff; padding: 20px;">
     <div class="card">
         <div class="body" style="padding: 20px">
             <h1><?= Html::encode($this->title) ?></h1>

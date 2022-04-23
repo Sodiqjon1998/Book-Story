@@ -6,17 +6,17 @@ use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\MapSearch */
+/* @var $searchModel common\models\MenusSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Xarita');
+$this->title = Yii::t('app', 'Menular');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="map-index" style="background: #fff; padding: 20px;">
+<div class="menus-index" style="background: #fff; padding: 20px;">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-   
+    
 
     <?php Pjax::begin(); ?>
 
@@ -26,12 +26,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'columns' => [
                 ['class' => 'yii\grid\SerialColumn'],
 
-                'map',
+                'home',
+                'books',
+                'product_list',
+                'contact',
+                'lang',
                 [
                     'class' => ActionColumn::className(),
-                    'urlCreator' => function ($action, common\models\Map $model, $key, $index, $column) {
-                        return Url::toRoute([$action, 'id' => $model->id]);
-                    }
+                    'template' => '{view} {delete}',
+                    'contentOptions' => ['style' => 'font-size: 20px;'],
                 ],
             ],
         ]); ?>

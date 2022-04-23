@@ -18,9 +18,6 @@ use yeesoft\multilingual\widgets\ActiveForm;
 
     <?=$form->field($model, 'content')->textInput();?>
 
-    
-    <?= $form->field($model, 'status')->widget(\kartik\switchinput\SwitchInput::class, []) ?>
-
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Save'), ['class' => 'btn btn-success', 'style' => 'width: 100%;']) ?>
     </div>

@@ -9,7 +9,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel common\models\ServicesSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Xizmatlar');
+$this->title = Yii::t('app', 'Xizmatlar Blogi');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="services-index" style="background: #fff; padding: 20px;">

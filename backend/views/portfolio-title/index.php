@@ -12,7 +12,7 @@ use yii\widgets\Pjax;
 $this->title = Yii::t('app', 'Portfolio Sarlavha');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="portfolio-title-index">
+<div class="portfolio-title-index" style="background: #fff; padding: 20px;">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
