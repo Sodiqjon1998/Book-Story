@@ -640,11 +640,11 @@ END scroll-top-arrow
 }
 
 .homer-banner .banner-description a:after{
-    content: "\f061";
-    font-family: "Font Awesome 5 Free Solid";
-    display: inline-block;
-    width:25px;
-    color: #f7941d;
+    /* content: "\f061"; */
+    /* font-family: "Font Awesome 5 Free Solid"; */
+    /* display: inline-block; */
+    /* width:25px;   */
+    /* color: #f7941d; */
 }
 /*BANNER HOME END*/
 

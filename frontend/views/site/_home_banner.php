@@ -18,7 +18,7 @@ $homeBanner = HomeBanner::find()->joinWith('translations')->one();
                 <div class="banner-description">
                     <span class="small-heading animated fadeInRight delay-1s"><?=$homeBanner->toptitle;?></span>
                     <h1 class="w-sm-100 w-md-100 w-lg-25 animated fadeInLeft delay-1s"><?=$homeBanner->title;?></h1>
-                    <a href="<?=Url::to(['product/product-list']);?>" class="btn animated fadeInLeft delay-1s"><?=$homeBanner->btn;?> </a>
+                    <a href="<?=Url::to(['product/product-list']);?>" class="btn animated fadeInLeft delay-1s"><?=$homeBanner->btn;?></a>
                 </div>
             </div>
         </div>
