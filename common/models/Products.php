@@ -85,8 +85,8 @@ class Products extends \yii\db\ActiveRecord
     {
         return [
             [['price', 'category_id', 'title'], 'required'],
-            [['price', 'category_id', 'count'], 'integer'],
-            [['count'], 'safe'],
+            [['price', 'category_id', 'count', 'count_review'], 'integer'],
+            [['count', 'count_review'], 'safe'],
             [['status', 'title'], 'string'],
             [['category_id'], 'exist', 'skipOnError' => true, 'targetClass' => ProductsCategory::class, 'targetAttribute' => ['category_id' => 'id']],
         ];
@@ -100,6 +100,7 @@ class Products extends \yii\db\ActiveRecord
             'title' => Yii::t('app', 'Maxsulot nomi'),
             'price' => Yii::t('app', 'Narxi'),
             'count' => Yii::t('app', 'Soni'),
+            'count_review' => Yii::t('app', 'Izohlar Soni'),
             'category_id' => Yii::t('app', 'Kategoryasi'),
             'status' => Yii::t('app', 'Satatus'),
         ];

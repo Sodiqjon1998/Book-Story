@@ -20,23 +20,21 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'id') ?>
 
-    <?= $form->field($model, 'product_id') ?>
+    <?= $form->field($model, 'products_id') ?>
 
     <?= $form->field($model, 'name') ?>
 
     <?= $form->field($model, 'email') ?>
 
-    <?= $form->field($model, 'your_review') ?>
+    <?= $form->field($model, 'stars') ?>
+
+    <?php // echo $form->field($model, 'your_review') ?>
 
     <?php // echo $form->field($model, 'created_at') ?>
 
     <?php // echo $form->field($model, 'updated_at') ?>
 
     <?php // echo $form->field($model, 'status') ?>
-
-    <?php // echo $form->field($model, 'count') ?>
-
-    <?php // echo $form->field($model, 'stars') ?>
 
     <div class="form-group">
         <?= Html::submitButton(Yii::t('app', 'Search'), ['class' => 'btn btn-primary']) ?>

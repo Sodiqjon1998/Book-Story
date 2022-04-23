@@ -1,6 +1,7 @@
 <?php
 
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\helpers\ArrayHelper;
 use yii\widgets\DetailView;
 
@@ -33,6 +34,24 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'title',
             'price',
+            'count',
+            'count_review',
+            [
+                'attribute' => 'status',
+                'value' => function($model){
+                    if($model->status == '1'){
+                        return Html::a( Yii::t('app', 'Faol'), Url::to(['products/change', 'id' =>$model->id]), ['class' => 'badge badge-primary badge-lg', 'style' => 'font-size: 17px']);
+                    }
+                    if($model->status == '0'){
+                        return Html::a( Yii::t('app', 'Faol emas'), Url::to(['products/change', 'id' =>$model->id]), ['class' => 'badge badge-danger badge-lg', 'style' => 'font-size: 17px']);
+                    }
+                },
+                'filter' => [
+                    '1' => Yii::t('app', 'Faol'),
+                    '0' => Yii::t('app', 'Faol emas'),
+                ],
+                'format' => 'raw'
+            ],
             [
                 'attribute' => 'category_id',
                 'value' => function($model){

@@ -5,7 +5,6 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-use common\models\Reviews;
 /* @var $this yii\web\View */
 /* @var $searchModel common\models\ReviewsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -26,35 +25,15 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            // 'id',
-            // 'product_id',
             'name',
             'email:email',
-            'your_review:ntext',
-            // 'created_at',
-            // 'updated_at',
-            'count',
             'stars',
+            'your_review:ntext',
+            'created_at:date',
+            'updated_at:date',
+            'status',
             [
-                'attribute' => 'status',
-                'format' => 'raw',
-                'value' => function($data){
-                    if($data->status == 0){
-                        return Html::a( "O'qildi", Url::to(['reviews/view', 'id' => $data->id]), ['class' => "btn btn-info btn-sm"]);
-                    }
-                    else{
-                        return Html::a("O'qilmadi", Url::to(['reviews/view', 'id' => $data->id]), ['class' => "btn btn-danger btn-sm"]);
-                    }
-                },
-                'filter' => [
-                    '1' => "O'qilmadi",
-                    '0' => "O'qildi",
-                ]
-            ],
-            [
-                'class' => ActionColumn::className(),
-                'template' => '{view} {update} {delete}',
-                'contentOptions' => ['style' => 'width:110px; font-size:20px'],
+                'class' => ActionColumn::class,
             ],
         ],
     ]); ?>

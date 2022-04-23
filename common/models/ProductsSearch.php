@@ -18,7 +18,7 @@ class ProductsSearch extends Products
     {
         return [
             [['id', 'price', 'category_id'], 'integer'],
-            [['title', 'status', 'count'] ,'safe'],
+            [['title', 'status', 'count', 'count_review'] ,'safe'],
         ];
     }
 
@@ -48,7 +48,7 @@ class ProductsSearch extends Products
             'query' => $query,
             'sort' => [
                 'attributes' => [
-                    'title', 'price', 'category_id', 'status', 'count'
+                    'title', 'price', 'category_id', 'status', 'count', 'count_review'
                 ]
             ]
         ]);

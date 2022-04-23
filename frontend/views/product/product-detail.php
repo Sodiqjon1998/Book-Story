@@ -17,7 +17,7 @@ use common\models\DetailBanner;
 $banner = Banner::find()->one();
 $detailBanner = DetailBanner::find()->one();
 
-$productCategory = ProductsCategory::find()->where(['status' => 1])->limit(3)->all();
+$productCategory = ProductsCategory::find()->limit(3)->all();
 $products = Products::find()->where(['status' => '1'])->all();
 
 $reviewComment = Reviews::find()->where(['status' => 1])->all();
@@ -250,7 +250,7 @@ $reviewComment = Reviews::find()->where(['status' => 1])->all();
                                                                 'pluginOptions' => [
                                                                     'step' => 1,
                                                                     'readonly' => false,
-                                                                    'size' => 'sm',
+                                                                    'size' => 'xs',
                                                                     'showClear' => false,
                                                                     'showCaption' => false,
 

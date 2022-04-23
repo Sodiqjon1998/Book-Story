@@ -9,27 +9,23 @@ use Yii;
  * This is the model class for table "{{%reviews}}".
  *
  * @property int $id
- * @property int $product_id
+ * @property int $products_id
  * @property string $name
  * @property string $email
+ * @property string $stars
  * @property string $your_review
  * @property int $created_at
  * @property int $updated_at
  * @property int $status
- * @property int $count
- * @property string $stars
  *
- * @property Product $product
+ * @property Product $products
  */
 class Reviews extends \yii\db\ActiveRecord
 {
-    
-    public static function tableName()
-    {
-        return '{{%reviews}}';
-    }
+    const STATUS_ACTIVE = 1;
+    const STATUS_NO_ACTIVE = 0;
 
-        
+    
     public function behaviors()
     {
         return [
@@ -40,42 +36,63 @@ class Reviews extends \yii\db\ActiveRecord
 
         ];
     }
-    
+    public static function tableName()
+    {
+        return '{{%reviews}}';
+    }
+
+    /**
+     * {@inheritdoc}
+     */
     public function rules()
     {
         return [
-            [['product_id', 'name', 'email', 'your_review', 'created_at', 'updated_at', 'status', 'stars'], 'required'],
-            [['product_id', 'created_at', 'updated_at', 'status', 'count'], 'integer'],
+            [['products_id', 'name', 'email', 'stars', 'your_review', 'created_at', 'updated_at', 'status'], 'required'],
+            [['products_id', 'created_at', 'updated_at', 'status'], 'integer'],
             [['your_review'], 'string'],
             [['name', 'email', 'stars'], 'string', 'max' => 255],
-            [['product_id'], 'exist', 'skipOnError' => true, 'targetClass' => Products::className(), 'targetAttribute' => ['product_id' => 'id']],
-        ];
-    }
-
-    
-    public function attributeLabels()
-    {
-        return [
-            'id' => Yii::t('app', 'ID'),
-            'product_id' => Yii::t('app', 'Product ID'),
-            'name' => Yii::t('app', 'Name'),
-            'email' => Yii::t('app', 'Email'),
-            'your_review' => Yii::t('app', 'Your Review'),
-            'created_at' => Yii::t('app', 'Created At'),
-            'updated_at' => Yii::t('app', 'Updated At'),
-            'status' => Yii::t('app', 'Status'),
-            'count' => Yii::t('app', 'Count'),
-            'stars' => Yii::t('app', 'Stars'),
+            [['products_id'], 'exist', 'skipOnError' => true, 'targetClass' => Products::className(), 'targetAttribute' => ['products_id' => 'id']],
         ];
     }
 
     /**
-     * Gets query for [[Product]].
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => Yii::t('app', 'ID'),
+            'products_id' => Yii::t('app', 'Products ID'),
+            'name' => Yii::t('app', 'Name'),
+            'email' => Yii::t('app', 'Email'),
+            'stars' => Yii::t('app', 'Stars'),
+            'your_review' => Yii::t('app', 'Your Review'),
+            'created_at' => Yii::t('app', 'Created At'),
+            'updated_at' => Yii::t('app', 'Updated At'),
+            'status' => Yii::t('app', 'Status'),
+        ];
+    }
+
+    /**
+     * Gets query for [[Products]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getProduct()
+    public function getProducts()
     {
-        return $this->hasOne(Products::className(), ['id' => 'product_id']);
+        return $this->hasOne(Products::className(), ['id' => 'products_id']);
+    }
+
+    
+    public static function statuses(){
+        return [
+            self::STATUS_ACTIVE => Yii::t('app', 'Yangi'),
+            self::STATUS_NO_ACTIVE => Yii::t('app', 'Jo\'natildi'),
+        ];
+    }
+
+
+    public function getStatusLabel(){
+        return $this->statuses() [$this->status];
     }
 }

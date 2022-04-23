@@ -130,12 +130,20 @@ class ProductController extends Controller{
                 
                 $review->status = 1;
 
-                $review->updateCounters(['count' => 1]);
+                $productDetail->updateCounters(['count_review' => 1]);
 
-                $review->product_id = $id;
+                $review->products_id = $id;
+
+                // echo "<pre>";
+                //     print_r($review);
+                // echo "</pre>";
+                // exit();
 
                 
                 if($review->save(false)){
+                    
+                    Yii::$app->session->setFlash('success', 'Xabaringiz Yuborildi !');
+
                 }
                 return $this->redirect(Yii::$app->request->referrer);
 

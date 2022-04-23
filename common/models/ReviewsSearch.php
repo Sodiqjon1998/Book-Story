@@ -17,8 +17,8 @@ class ReviewsSearch extends Reviews
     public function rules()
     {
         return [
-            [['id', 'product_id', 'created_at', 'updated_at', 'status', 'count'], 'integer'],
-            [['name', 'email', 'your_review', 'stars'], 'safe'],
+            [['id', 'products_id', 'created_at', 'updated_at', 'status'], 'integer'],
+            [['name', 'email', 'stars', 'your_review'], 'safe'],
         ];
     }
 
@@ -59,17 +59,16 @@ class ReviewsSearch extends Reviews
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'product_id' => $this->product_id,
+            'products_id' => $this->products_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'status' => $this->status,
-            'count' => $this->count,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
             ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'your_review', $this->your_review])
-            ->andFilterWhere(['like', 'stars', $this->stars]);
+            ->andFilterWhere(['like', 'stars', $this->stars])
+            ->andFilterWhere(['like', 'your_review', $this->your_review]);
 
         return $dataProvider;
     }
