@@ -10,6 +10,7 @@ use common\models\ProductsCategory;
 use kartik\rating\StarRating;
 use yii\bootstrap4\ActiveForm;
 use common\models\Reviews;
+use common\models\ProjectDes;
 use common\models\DetailBanner;
 
 
@@ -21,6 +22,7 @@ $productCategory = ProductsCategory::find()->limit(3)->all();
 $products = Products::find()->where(['status' => '1'])->all();
 
 $reviewComment = Reviews::find()->where(['status' => 1])->all();
+$projectDes = ProjectDes::find()->one();
 
 ?>
 
@@ -132,13 +134,12 @@ $reviewComment = Reviews::find()->where(['status' => 1])->all();
                                         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Additional Information</a>
                                     </li>
                                     <li class="col-4 nav-item">
-                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Customer Reviews  (2)</a>
+                                        <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Customer Reviews  (<?=$productDetail->count_review;?>)</a>
                                     </li>
                                 </ul>
                                 <div class="col-12 tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                        <p class="product-tab-description text-center text-lg-left">If you are a small business and you are interested in small rebranding then this is a perfect plan for you, having Five years experience in Blogging, photographing, Disgning and love to cycling,Writting,Singing and Traveling around the world</p>
-                                        <p class="product-tab-description text-center text-lg-left">If you are a small business and you are interested in small rebranding then this is a perfect plan for you, having Five years experience in Blogging, photographing, Disgning and love to cycling,Writting,Singing and Traveling around the world</p>
+                                        <p class="product-tab-description text-center text-lg-left"><?=$projectDes->content;?></p>
                                     </div>
                                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                                         <div class="row">
@@ -188,13 +189,13 @@ $reviewComment = Reviews::find()->where(['status' => 1])->all();
                                         <?php foreach($reviewComment as $item):?>
                                         <div class="media">
                                             <div class="row no-gutter">
-                                                <div class="col-12 col-lg-2 p-0">
+                                                <div class="col-12 col-lg-3 p-0" style="width: 290px;">
 
                                                     <div class="row no-gutters">
                                                         <div class="col-12 d-flex  justify-content-center">
-                                                            <img style="overflow: hidden;">
+                                                            <p></p>
                                                         </div>
-                                                        <div class="col-12 d-flex mt-2 justify-content-center">
+                                                        <div class="col-12 d-flex mt-2 justify-content-center align-self-center">
                                                             <ul class="user-rating">
                                                                 <?=StarRating::widget([
                                                                     'name' => 'rating_21',
@@ -212,11 +213,11 @@ $reviewComment = Reviews::find()->where(['status' => 1])->all();
 
                                                 </div>
 
-                                                <div class="col-12 col-lg-10 p-0">
+                                                <div class="col-12 col-lg-9 p-0">
                                                     <div class="media-body">
-                                                        <span class="text-center text-lg-left d-block">27 Aug 2017</span>
-                                                        <h5 class="mb-2 text-center text-lg-left">Media heading</h5>
-                                                        <p class="text-center text-lg-left">Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam.</p>
+                                                        <span class="text-center text-lg-left d-block"><?=date("d-M-Y, H-i-s", $item->created_at);?></span>
+                                                        <h5 class="mb-2 text-center text-lg-left"><?=$item->name;?></h5>
+                                                        <p class="text-center text-lg-left"><?=$item->your_review;?> </p>
                                                     </div>
                                                 </div>
 
