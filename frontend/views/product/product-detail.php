@@ -12,6 +12,8 @@ use yii\bootstrap4\ActiveForm;
 use common\models\Reviews;
 use common\models\ProjectDes;
 use common\models\DetailBanner;
+use common\models\AddInfo;
+use common\models\Share;
 
 
 
@@ -23,6 +25,8 @@ $products = Products::find()->where(['status' => '1'])->all();
 
 $reviewComment = Reviews::find()->where(['status' => 1])->all();
 $projectDes = ProjectDes::find()->one();
+$addInfo = AddInfo::find()->where(['status' => 1])->all();
+$share = Share::find()->where(['status' => 1])->all();
 
 ?>
 
@@ -115,10 +119,9 @@ $projectDes = ProjectDes::find()->one();
                             <div class="share-product-details">
                                 <ul class="share-product-icons">
                                     <li><p>Share Link:</p></li>
-                                    <li><a href="javascript:void(0)" class="facebook-bg-hvr"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                                    <li><a href="javascript:void(0)" class="twitter-bg-hvr"><i class="fab fa-twitter" aria-hidden="true"></i></a> </li>
-                                    <li><a href="javascript:void(0)" class="linkedin-bg-hvr"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a></li>
-                                    <li><a href="javascript:void(0)" class="instagram-bg-hvr"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                                    <?php foreach($share as $item):?>
+                                        <li><a href="<?=$item->url;?>" class="facebook-bg-hvr"><i class="fab <?=$item->icon;?>" aria-hidden="true"></i></a></li>
+                                    <?php endforeach;?>
                                 </ul>
                             </div>
                         </div>
@@ -154,30 +157,14 @@ $projectDes = ProjectDes::find()->one();
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                    <tr>
-                                                        <th scope="row">1</th>
-                                                        <td>Mark</td>
-                                                        <td>Otto</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">2</th>
-                                                        <td>Jacob</td>
-                                                        <td>Thornton</td>
-                                                        <td>@fat</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">3</th>
-                                                        <td>Larry</td>
-                                                        <td>the Bird</td>
-                                                        <td>@twitter</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th scope="row">4</th>
-                                                        <td>Alex</td>
-                                                        <td>Thorn</td>
-                                                        <td>@mdo</td>
-                                                    </tr>
+                                                        <?php foreach($addInfo as $k => $item):?>
+                                                            <tr>
+                                                                <th scope="row"><?=$k+1;?></th>
+                                                                <td><?=$item->first;?></td>
+                                                                <td><?=$item->last;?></td>
+                                                                <td><?=$item->handle;?></td>
+                                                            </tr>
+                                                        <?php endforeach;?>
                                                     </tbody>
                                                 </table>
                                             </div>
