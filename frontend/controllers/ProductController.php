@@ -347,7 +347,7 @@ class ProductController extends Controller{
             $orderModel = new Order();
         
             $orderModel->user_id = $userId;
-            $orderModel->total_sum =  $_SESSION['asumma'];
+            $orderModel->total_sum =  $_SESSION['asumma'] +$_SESSION['sum'];
             $orderModel->status = 1;
 
             if($orderModel->save(false)){

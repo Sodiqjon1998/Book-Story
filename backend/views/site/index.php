@@ -152,7 +152,9 @@ $_SESSION['counterReviews'] = $counterReviews;
                         <td><?=$item->address->district->name_uz;?></td>
                         <td> <?=$item->address->quarters->name;?></td>
                         <td><?=$item->address->phone;?></td>
-                        <td>$<?=$item->total_sum;?></td>
+                        <td>
+                          <p class="btn-primary" style="padding: 7px; font-size: 17px; font-family: sans-serif;">$ <?=$item->total_sum;?></p>
+                        </td>
                     </tr>  
                 <?php endforeach;?> 
                 </tbody>
@@ -163,6 +165,8 @@ $_SESSION['counterReviews'] = $counterReviews;
           <!-- /.box -->
         </div>
         <!-- /.col -->
+        
+        
     </div>
     <!-- /.row -->
     

@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
             ],
             [
                 'class' => ActionColumn::class,
-                'template' => '{view} {update}',
+                'template' => '{view} {delete}',
                 'contentOptions' => ['style' => 'width:150px; font-size:20px'],
             ],
         ],

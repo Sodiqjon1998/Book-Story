@@ -151,39 +151,23 @@ $menus = $main_menu->activeSubMenus ;
                                             </a>
                                             <div id="sideNavPages1" class="collapse sideNavPages">
 
-                                                <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Love Does</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">No One Belongs</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html">As I Lay Dying</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Life is Elsewhere</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">The Road</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Why Me?</a></li>
-                                                </ul>
                                                 <h5 class="sub-title">1. Classic</h5>
                                                 <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Lorna Doone</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Lord of Flies</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html">Kidnapped</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">End World</a></li>
-                                                </ul>
-
-                                                <h5 class="sub-title">2. Novel's</h5>
-                                                <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Romance</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Fantasy</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html">Thrillers</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Historical Fiction</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Others</a></li>
+                                                    <?php foreach($productClassik as $item):?>
+                                                        <li class="nav-item"><a class="nav-link" href="<?=Url::to(['product/product-detail', 'id' => $item->id]);?>"><?=$item->title;?></a></li>
+                                                    <?php endforeach;?>
                                                 </ul>
 
                                                 <h5 class="sub-title">3. History</h5>
                                                 <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Creative Thinking</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Historical Fiction</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html">Creative Thinking</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Personal Finance</a></li>
+                                                    <?php foreach($productHistorical as $item):?>
+                                                        <li class="nav-item"><a class="nav-link" href="<?=Url::to(['product/product-detail', 'id' => $item->id]);?>"><?=$item->title;?></a></li>
+                                                    <?php endforeach;?>
                                                 </ul>
                                             </div>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="<?=Url::to(['product/product-list']);?>"><?=$menu->product_list;?></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="<?=Url::to(['contact/index']);?>"><?=$menu->contact;?></a>
@@ -265,11 +249,11 @@ $menus = $main_menu->activeSubMenus ;
                                     
                                     <ul class="navbar-nav ml-auto">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?=Url::home();?>">HOME</a>
+                                            <a class="nav-link" href="<?=Url::home();?>"><?=$menu->home;?></a>
                                         </li>
 
                                         <li class="nav-item dropdown static">
-                                            <a class="nav-link dropdown-toggle active" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> BOOKS </a>
+                                            <a class="nav-link dropdown-toggle active" href="javascript:void(0)" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <?=$menu->books;?> </a>
                                             <ul class="dropdown-menu megamenu flexable-megamenu">
                                                 <li>
                                                     <div class="container">
@@ -337,11 +321,11 @@ $menus = $main_menu->activeSubMenus ;
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?=Url::to(['product/product-list']);?>">Product List</a>
+                                            <a class="nav-link" href="<?=Url::to(['product/product-list']);?>"><?=$menu->product_list;?></a>
                                         </li>
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?=Url::to(['contact/index']);?>">CONTACT</a>
+                                            <a class="nav-link" href="<?=Url::to(['contact/index']);?>"><?=$menu->contact;?></a>
                                         </li>
 
                                         <li class="nav-item dropdown position-relative">
@@ -368,76 +352,34 @@ $menus = $main_menu->activeSubMenus ;
                                     <ul class="navbar-nav">
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?=Url::home();?>"> HOME</a>
+                                            <a class="nav-link" href="<?=Url::home();?>"> <?=$menu->home;?></a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link collapsePagesSideMenu" data-toggle="collapse" href="#sideNavPages1">
-                                                BOOKS <i class="fas fa-chevron-down"></i>
+                                            <?=$menu->books;?> <i class="fas fa-chevron-down"></i>
                                             </a>
                                             <div id="sideNavPages1" class="collapse sideNavPages">
 
-                                                <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Love Does</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">No One Belongs</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html">As I Lay Dying</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Life is Elsewhere</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">The Road</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Why Me?</a></li>
-                                                </ul>
                                                 <h5 class="sub-title">1. Classic</h5>
                                                 <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Lorna Doone</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Lord of Flies</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html">Kidnapped</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">End World</a></li>
-                                                </ul>
-
-                                                <h5 class="sub-title">2. Novel's</h5>
-                                                <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Romance</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Fantasy</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html">Thrillers</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Historical Fiction</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Others</a></li>
+                                                    <?php foreach($productClassik as $item):?>
+                                                        <li class="nav-item"><a class="nav-link" href="<?=Url::to(['product/product-detail', 'id' => $item->id]);?>"><?=$item->title;?></a></li>
+                                                    <?php endforeach;?>
                                                 </ul>
 
                                                 <h5 class="sub-title">3. History</h5>
                                                 <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Creative Thinking</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Historical Fiction</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html">Creative Thinking</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Personal Finance</a></li>
+                                                    <?php foreach($productHistorical as $item):?>
+                                                        <li class="nav-item"><a class="nav-link" href="<?=Url::to(['product/product-detail', 'id' => $item->id]);?>"><?=$item->title;?></a></li>
+                                                    <?php endforeach;?>
                                                 </ul>
                                             </div>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link collapsePagesSideMenu" data-toggle="collapse" href="#sideNavPages3">
-                                                E-BOOKS <i class="fas fa-chevron-down"></i>
-                                            </a>
-                                            <div id="sideNavPages3" class="collapse sideNavPages">
-                                                <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Art</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Autobiography</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html">Biography</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Chick lit</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Coming-of-age</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Anthology</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Drama</a></li>
-                                                </ul>
-                                                <h5 class="sub-title">1. Others</h5>
-                                                <ul class="navbar-nav mt-2">
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Crime</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html"> Dictionary</a></li>
-                                                    <li class="nav-item" ><a class="nav-link" href="book-shop/product-listing.html"> Health</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">History</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Horror</a></li>
-                                                    <li class="nav-item"><a class="nav-link" href="book-shop/product-listing.html">Poetry</a></li>
-                                                </ul>
-                                            </div>
+                                            <a class="nav-link" href="<?=Url::to(['product/product-list']);?>"><?=$menu->product_list;?></a>
                                         </li>
-                                        
                                         <li class="nav-item">
-                                            <a class="nav-link" href="<?=Url::to(['contact/index']);?>">Contact</a>
+                                            <a class="nav-link" href="<?=Url::to(['contact/index']);?>"><?=$menu->contact;?></a>
                                         </li>
                                     </ul>
                                 </nav>
