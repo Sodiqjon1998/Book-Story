@@ -5,19 +5,21 @@ use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
-use common\models\HomeBanner;
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\HomeBannerSearch */
+/* @var $searchModel common\models\ProfileSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = Yii::t('app', 'Bosh Sahifa Banneri');
+$this->title = Yii::t('app', 'Profiles');
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="home-banner-index" style="padding: 20px; background: #fff;">
+<div class="profile-index" style="background: #fff; padding: 20px;">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
+
+
     <?php Pjax::begin(); ?>
+    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -32,17 +34,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 },
                 'format' => 'raw',
             ],
-            'toptitle',
-            [
-                'attribute' => 'title',
-                'format' => 'raw',
-            ],
-            'btn',
+            'name',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, HomeBanner $model, $key, $index, $column) {
-                    return Url::toRoute([$action, 'id' => $model->id]);
-                },
                 'template' => '{view} {update}',
                 'contentOptions' => ['style' => 'width:150px; font-size:20px'],
             ],

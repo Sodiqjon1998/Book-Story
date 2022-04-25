@@ -86,8 +86,8 @@ class Reviews extends \yii\db\ActiveRecord
     
     public static function statuses(){
         return [
-            self::STATUS_ACTIVE => Yii::t('app', 'Yangi'),
-            self::STATUS_NO_ACTIVE => Yii::t('app', 'Jo\'natildi'),
+            self::STATUS_ACTIVE => Yii::t('app', 'Faol'),
+            self::STATUS_NO_ACTIVE => Yii::t('app', 'Faol Emas'),
         ];
     }
 

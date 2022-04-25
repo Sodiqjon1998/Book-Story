@@ -1,53 +1,169 @@
 <?php
+use yii\helpers\Url;
+use common\models\Contact;
+use common\models\User;
+use common\models\Order;
+use common\models\Reviews;
 
-/** @var yii\web\View $this */
+$contact = Contact::find()->all();
+$user = User::find()->all();
+$order = Order::find()->where(['status' => 1])->all();
+$reviews = Reviews::find()->where(['status' => 1])->all();
 
-$this->title = 'My Yii Application';
+$counter = 0;
+
+foreach($contact as $item){
+    $counter +=1;
+}
+
+$_SESSION['counterContact'] = $counter;
+
+$counterUser = 0;
+
+foreach($user as $item){
+    $counterUser +=1;
+}
+
+$_SESSION['counterUser'] = $counterUser;
+
+
+$counterOrder = 0;
+
+foreach($order as $item){
+    $counterOrder +=1;
+}
+
+$_SESSION['counterOrder'] = $counterOrder;
+
+$counterReviews = 0;
+
+foreach($reviews as $item){
+    $counterReviews +=1;
+}
+
+$_SESSION['counterReviews'] = $counterReviews;
+
+// $this->title = 'My Yii Application';
 ?>
-<div class="site-index">
+<!-- Main content -->
+<section class="content">
 
-    <div class="jumbotron text-center bg-transparent">
-        <h1 class="display-4">Congratulations!</h1>
+    <div class="row">
+        <!-- ./col -->
+        <div class="col-lg-3 col-xs-6">
+            <!-- small box -->
+            <div class="small-box bg-yellow">
+                <div class="inner">
+                    <h3><?=$_SESSION['counterUser'];?></h3>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
-
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
-    </div>
-
-    <div class="body-content">
-
-        <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
-            </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
-
-                <p><a class="btn btn-outline-secondary" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                    <p>Foydalanuvchilar Soni</p>
+                </div>
+                <div class="icon">
+                    <i class="fa fa-users"></i>
+                </div>
+                <a href="<?=Url::to(['user/index']);?>" class="small-box-footer">
+                    More info <i class="fa fa-arrow-circle-right"></i>
+                </a>
             </div>
         </div>
+        <!-- ./col -->
 
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?=$_SESSION['counterOrder'];?></h3>
+
+              <p>Buyurtmalar Soni</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-shopping-cart"></i>
+            </div>
+            <a href="<?=Url::to(['order/index']);?>" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?=$_SESSION['counterContact'];?></h3>
+
+              <p>Contactlar</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-comments-o"></i>
+            </div>
+            <a href="<?=Url::to(['contact/index']);?>" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
+        
+        <div class="col-lg-3 col-xs-6">
+          <!-- small box -->
+          <div class="small-box bg-aqua">
+            <div class="inner">
+              <h3><?=$_SESSION['counterReviews'];?></h3>
+
+              <p>Maxsulot izohlari</p>
+            </div>
+            <div class="icon">
+              <i class="fa fa-comment"></i>
+            </div>
+            <a href="<?=Url::to(['reviews/index']);?>" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>
+          </div>
+        </div>
+        <!-- ./col -->
     </div>
-</div>
+
+    <div class="row">
+        <div class="col-xs-12">
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">Buyurtmalar Jadvali</h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Mujoz</th>
+                  <th>Viloyat</th>
+                  <th>Tuman</th>
+                  <th>Qishloq</th>
+                  <th>Telefon</th>
+                  <th>Umumiy Summasi</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php foreach($order as $item):?>
+                    <tr>
+                        <td style="width: 220px;"><?=$item->user->username;?></td>
+                        <td>
+                            <?=$item->address->region->name_uz;?>
+                        </td>
+                        <td><?=$item->address->district->name_uz;?></td>
+                        <td> <?=$item->address->quarters->name;?></td>
+                        <td><?=$item->address->phone;?></td>
+                        <td>$<?=$item->total_sum;?></td>
+                    </tr>  
+                <?php endforeach;?> 
+                </tbody>
+              </table>
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+        <!-- /.col -->
+    </div>
+    <!-- /.row -->
+    
+</section>

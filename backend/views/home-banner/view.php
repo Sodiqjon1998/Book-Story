@@ -11,7 +11,7 @@ $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bosh Sahifa Banneri'
 $this->params['breadcrumbs'][] = $this->title;
 \yii\web\YiiAsset::register($this);
 ?>
-<div class="home-banner-view">
+<div class="home-banner-view" style="padding: 20px; background: #fff;">
     <div class="card">
         <div class="body" style="padding: 20px">
             <h1><?= Html::encode($this->title) ?></h1>

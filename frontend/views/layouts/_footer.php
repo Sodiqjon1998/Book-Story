@@ -2,12 +2,15 @@
 
 use yii\helpers\Url;
 use common\models\ProductsCategory;
+use common\models\Share;
 
 $productCategory = ProductsCategory::find()
                         ->where(['status' => '1'])
                         ->limit(4)
                         ->all();
 
+
+$share = Share::find()->where(['status' => 1])->limit(3)->all();
 
 ?>
 
@@ -22,9 +25,9 @@ $productCategory = ProductsCategory::find()
                 <h4>Social Network</h4>
                 <div class="s-icons">
                     <ul class="social-icons-simple">
-                        <li><a href="javascript:void(0)" class="facebook-bg-hvr"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                        <li><a href="javascript:void(0)" class="twitter-bg-hvr"><i class="fab fa-twitter" aria-hidden="true"></i></a> </li>
-                        <li><a href="javascript:void(0)" class="instagram-bg-hvr"><i class="fab fa-instagram" aria-hidden="true"></i></a></li>
+                        <?php foreach($share as $item):?>
+                            <li><a href="<?=$item->url;?>" class="facebook-bg-hvr"><i style="background: #fff !important;" class="fab fa-<?=$item->icon;?>" aria-hidden="true"></i></a></li>
+                        <?php endforeach;?>
                     </ul>
                 </div>
             </div>
