@@ -4,7 +4,7 @@
     </a>
     <h1 align="center">Yii 2 Advanced Project Template</h1>
     <br>
-    <a href="https://drive.google.com/file/d/1Lm-QGgSckPpB9K4tFwOM8paGaecq2bm6/view">Savol</a>
+    <a href="https://docs.google.com/document/d/1Lm-QGgSckPpB9K4tFwOM8paGaecq2bm6/edit#heading=h.fjreu0vtwgw1">Savol</a>
     <a href="https://docs.google.com/spreadsheets/d/1YW4rg76d9HNx1om0fz_IsYbZn50rMoxo/edit?usp=sharing&ouid=107530505261995362680&rtpof=true&sd=true">Xurshidbek</a>
 </p>
 
