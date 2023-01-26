@@ -5,7 +5,6 @@
     <h1 align="center">Yii 2 Advanced Project Template</h1>
     <br>
     <a href="https://docs.google.com/document/d/1Lm-QGgSckPpB9K4tFwOM8paGaecq2bm6/edit#heading=h.fjreu0vtwgw1">Savol</a>
-    <a href="file:///C:/Users/Developer/Downloads/Telegram%20Desktop/2021.pdf">Xurshidbek</a>
 </p>
 
 Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
